@@ -8,5 +8,6 @@ Gem::Specification.new do |s|
   s.email         = 'mduvall89@gmail.com'
   s.files         = `git ls-files`.split("\n")
   s.require_path  = 'lib'
-  s.homepage      = 'http://rubygems.org/gems/mealtime'
+  s.homepage      = 'http://www.mattduvall.com'
+  s.executables   << "mealtime"
 end
