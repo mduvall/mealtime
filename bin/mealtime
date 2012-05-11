@@ -6,11 +6,14 @@ require 'mealtime'
 if ARGV.length == 0
   # GET ALL THE PLACES!
   MealTime.get_naked_lunch
+  MealTime.get_cheeseboard
 else
   puts "Processing the select restaurants..."
   # For now, we'll handle --naked for Naked Lunch, plan accordingly for the future
   case ARGV.first
   when "--naked"
     MealTime.get_naked_lunch
+  when "--cheeseboard"
+    MealTime.get_cheeseboard
   end
 end

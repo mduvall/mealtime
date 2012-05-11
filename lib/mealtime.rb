@@ -1,9 +1,14 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'term/ansicolor'
+
+include Term::ANSIColor
 
 class MealTime
+
   def self.get_naked_lunch
+    puts 'Naked Lunch'.green.bold
     sandwiches = []
     html_body = get_nokogiri_object_from_url("http://sites.google.com/site/nakedlunchsf/")        
     [
@@ -16,8 +21,24 @@ class MealTime
         sandwiches << node.content.split("\302").first
       end
     end
-    puts 'Naked Lunch'
-    sandwiches.each {|sandwich| puts "\t#{sandwich}"}
+    sandwiches.each {|sandwich| puts "  #{sandwich}"}
+  end
+
+  def self.get_cheeseboard
+    puts "Cheeseboard".green.bold
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    # The conditional is a weird way of finding whether its Monday through Saturday
+    if (2..6).include?(Time.now.wday)
+      pizzas = []
+      html_body = get_nokogiri_object_from_url("http://cheeseboardcollective.coop/pizza")
+      html_body.css("div.column")[0].css("p").each do |node|
+        pizzas << node.content
+      end
+      pizzas.slice!(5..pizzas.length)
+      puts "  #{days[Time.now.wday]}: #{pizzas[Time.now.wday-2]}"
+    else
+      puts "  Closed!".red
+    end
   end
 
   private
