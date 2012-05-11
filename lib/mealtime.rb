@@ -16,7 +16,8 @@ class MealTime
         sandwiches << node.content.split("\302").first
       end
     end
-    sandwiches.each {|sandwich| puts sandwich}
+    puts 'Naked Lunch'
+    sandwiches.each {|sandwich| puts "\t#{sandwich}"}
   end
 
   private
