@@ -6,6 +6,7 @@ require 'term/ansicolor'
 include Term::ANSIColor
 
 class MealTime
+  DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   def self.get_naked_lunch
     puts 'Naked Lunch'.green.bold
@@ -26,7 +27,6 @@ class MealTime
 
   def self.get_cheeseboard
     puts "Cheeseboard".green.bold
-    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     # The conditional is a weird way of finding whether its Monday through Saturday
     if (2..6).include?(Time.now.wday)
       pizzas = []
@@ -35,11 +35,20 @@ class MealTime
         pizzas << node.content
       end
       pizzas.slice!(5..pizzas.length)
-      puts "  #{days[Time.now.wday]}: #{pizzas[Time.now.wday-2]}"
+      puts "  #{DAYS[Time.now.wday]}".blue + ": #{pizzas[Time.now.wday-2]}"
     else
       puts "  Closed!".red
     end
   end
+
+  def self.get_arizmendi
+    puts "Arizmendi Bakery/Pizzeria".green.bold
+    html_body = get_nokogiri_object_from_url("http://www.arizmendibakery.org/pizza")
+    html_body.css("td.active p.yasp-item").each do |node|
+      puts "  #{DAYS[Time.now.wday]}".blue + ": #{node.content}"
+    end
+  end
+
 
   private
   def self.get_nokogiri_object_from_url(url)
