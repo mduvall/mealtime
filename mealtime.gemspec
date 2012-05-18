@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.authors       = ["Matthew DuVall"]
   s.email         = 'mduvall89@gmail.com'
 
+  s.required_ruby_version = ">= 1.9.0"
   s.add_dependency "nokogiri"
   s.add_dependency "term-ansicolor"
 

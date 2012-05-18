@@ -10,4 +10,4 @@ Currently pulling delicious dishes from... :
 
 The next version of the gem will include food truck locations, and a couple more frequented restaurants. Stay tuned!
 
-Feel free to install the gem by `gem install mealtime` and it is available on RubyGems [here](https://rubygems.org/gems/mealtime).
+Feel free to install the gem by `gem install mealtime` and it is available on RubyGems [here](https://rubygems.org/gems/mealtime). Currently supported on Ruby 1.9.2 implementations.
