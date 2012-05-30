@@ -49,6 +49,15 @@ class MealTime
     end
   end
 
+  def self.get_kasa
+    locations = []
+    puts "Kasa locations".green.bold
+    html_body = get_nokogiri_object_from_url("http://kasaindian.com/indian-restaurant-sf/truck")
+    html_body.css("#eme_list-3 ul li a").each do |node|
+      locations << node.content
+    end
+    puts "  #{DAYS[Time.now.wday]}".blue + ": #{locations.first}"
+  end
 
   private
   def self.get_nokogiri_object_from_url(url)

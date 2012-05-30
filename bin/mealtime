@@ -8,6 +8,7 @@ if ARGV.length == 0
   MealTime.get_naked_lunch
   MealTime.get_cheeseboard
   MealTime.get_arizmendi
+  MealTime.get_kasa
 else
   puts "Processing the select restaurants..."
   # For now, we'll handle --naked for Naked Lunch, plan accordingly for the future
@@ -18,5 +19,7 @@ else
     MealTime.get_cheeseboard
   when "--arizmendi"
     MealTime.get_arizmendi
+  when "--kasa"
+    MealTime.get_kasa
   end
 end
