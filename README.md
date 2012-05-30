@@ -7,6 +7,8 @@ Currently pulling delicious dishes from... :
 * Arizmendi Bakery/Pizzeria (Piedmont/Oakland)
 * Cheese Board [Pizza] Collective (Berkeley)
 * Naked Lunch (San Francisco)
+* [Kasa Indian Food
+  Truck](http://kasaindian.com/indian-restaurant-sf/truck) (San Francisco)
 
 The next version of the gem will include food truck locations, and a couple more frequented restaurants. Stay tuned!
 
